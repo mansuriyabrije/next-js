@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =========================
+   Design tokens
+   ========================= */
+@theme {
+  --color-primary: #4A0075;
+  --color-accent: #F243BC;
+  /* Medium gray for body text */
+  --color-secondary: #303030;
+  --color-primary-dark: #3B005E;
+  --color-primary-50: #F7EAFF;
+  /* Soft/muted accent border color */
+  --color-accent-soft: #FEECF8;
+  /* Very light accent */
+  --color-accent-100: #FCD9F2;
+  /* Dark semi-transparent overlay */
+  --color-overlay-dark: #00000057;
+  /* Primary-tinted semi-transparent */
+  --color-overlay-primary: #4A00754D;
+  /* Muted/low-opacity primary for shadows */
+  --color-primary-muted: #6D2F9114;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    @apply min-h-full;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    @apply text-base/normal font-normal text-secondary flex flex-col min-h-dvh overflow-x-hidden relative;
+    font-family: var(--font-lufga, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-primary-shell {
+    @apply inline-flex rounded-full font-medium text-white capitalize p-px
+      bg-[linear-gradient(96.1deg,var(--color-primary),var(--color-accent))]
+      min-h-11 relative cursor-pointer;
+  }
+
+  .btn-primary-inner {
+    @apply rounded-full flex gap-1.5 items-center py-2 ps-3.5 pe-12
+      bg-[linear-gradient(102.38deg,var(--color-accent)_6.52%,var(--color-primary)_93.15%)]
+      min-h-full justify-center
+      shadow-[6px_10px_20px_0px_var(--color-overlay-primary),inset_0px_0px_6px_0px_var(--color-overlay-dark)]
+      w-full;
+  }
+
+  .card-glass {
+    @apply p-6 text-center rounded-3xl
+      shadow-[0px_20px_50px_0px_#00000014]
+      backdrop-blur-[30px] bg-white/30;
+  }
+
+  .input-field {
+    @apply flex rounded-full border border-[#B28CC8] bg-white items-center overflow-hidden;
+  }
+
+  .input-inner {
+    @apply w-full sm:min-h-[46px] min-h-10 md:ps-4 ps-3 py-2 border-0
+      focus-within:outline-none focus:border-0
+      text-sm/tight font-normal placeholder:text-secondary text-primary;
+  }
+}
+
+/* =========================
+   Custom background / behavior
+   (kept for current scaffold parity)
+   ========================= */
+.border-span {
+  background: url("/assets/images/border-btn.png") no-repeat center;
+  background-size: 100% 100%;
+}
+
+.gredient-div {
+  background: url("/assets/images/main-gredient.png") no-repeat center top;
+  background-size: 100% 100%;
+}
+
+.site-footer .primary-btn .border-span {
+  background: url("/assets/images/primary-border-dashed.png") no-repeat center;
+  background-size: 100% 100%;
+}
+
+.site-footer .social-media a:hover svg path:nth-child(1) {
+  stroke: white;
+}
+
+.banner-sec {
+  background: url("/assets/images/banner-bg.png") no-repeat center;
+  background-size: 100% 100%;
+}
+
+.form-box {
+  background: url("/assets/images/background-img.png") no-repeat center;
+  background-size: cover;
+}
+
+.site-footer {
+  background-color: transparent;
+}
+
+.custom-checkbox:checked {
+  background: url("/assets/images/icon/white-check-icon.svg") no-repeat center;
+  background-size: 8px;
+}
+
+@media screen and (max-width: 1024px) {
+  .mobile-menu {
+    transform: translateX(100%);
+  }
+
+  .mobile-menu.active {
+    transform: translateX(0);
+  }
+
+  #overlay.active {
+    display: block !important;
+  }
+}
+
+/* Enable smoother transforms during mobile drawer transitions */
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
 }
