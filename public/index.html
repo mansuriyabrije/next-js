@@ -1,0 +1,334 @@
+<!doctype html>
+<html class="min-h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SALUTT</title>
+    <link href="./assets/css/global.css" rel="stylesheet" />
+    <script src="assets/js/jquery-4.0.0.min.js"></script>
+    <script src="assets/js/script.js"></script>
+  </head>
+  <body class="text-base/normal font-normal text-secondary flex flex-col min-h-dvh overflow-x-hidden relative">
+    <!-- ======= Header ======= -->
+    <button id="overlay" class="fixed top-0 left-0 right-0 bottom-0 bg-overlay-dark z-40 hidden"></button>
+    <header class="absolute top-0 w-full z-50">
+      <div class="container max-w-7xl md:px-5 px-4 mx-auto">
+        <div class="flex justify-between gap-5 items-center border-b border-neutral-100/35 md:py-4 py-3">
+          <div class="flex xl:gap-6 gap-3 items-center">
+            <a href="/" class="md:max-w-24 max-w-16 block"><img src="assets/images/logo/site-logo.svg" alt=""></a>
+            <div class="mobile-menu flex flex-col transition-transform duration-300 max-lg:fixed max-lg:top-0 max-lg:bottom-0 max-lg:right-0 max-lg:h-dvh max-lg:bg-white max-lg:z-50 max-lg:justify-between max-lg:w-80 max-lg:max-w-11/12 max-lg:px-4 max-lg:pb-4 max-lg:pt-10">
+              <button id="closeMenuBtn" class="hidden max-lg:inline-flex justify-center items-center absolute top-4 right-4">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#0F1729"/> </g>
+                </svg>
+              </button>
+              <ul class="flex xl:gap-6 gap-3 text-white font-medium max-lg:flex-col max-lg:h-full max-lg:overflow-y-auto">
+                <li class="">
+                  <a href="/" class="group text-center w-20 flex justify-center items-center gap-1.5 transition-all duration-300 hover:text-accent max-lg:w-full max-lg:text-primary max-lg:justify-start">
+                    <span class="w-0 transition-all duration-300 scale-0 max-lg:w-6 max-lg:scale-100 group-hover:block group-hover:scale-100 group-hover:w-6">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.4107 19.9677C7.58942 17.858 2 13.0348 2 8.69444C2 5.82563 4.10526 3.5 7 3.5C8.5 3.5 10 4 12 6C14 4 15.5 3.5 17 3.5C19.8947 3.5 22 5.82563 22 8.69444C22 13.0348 16.4106 17.858 13.5893 19.9677C12.6399 20.6776 11.3601 20.6776 10.4107 19.9677Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="/" class="group text-center w-20 flex justify-center items-center gap-1.5 transition-all duration-300 hover:text-accent max-lg:w-full max-lg:text-primary max-lg:justify-start">
+                    <span class="w-0 transition-all duration-300 scale-0 max-lg:w-6 max-lg:scale-100 group-hover:block group-hover:scale-100 group-hover:w-6">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.4107 19.9677C7.58942 17.858 2 13.0348 2 8.69444C2 5.82563 4.10526 3.5 7 3.5C8.5 3.5 10 4 12 6C14 4 15.5 3.5 17 3.5C19.8947 3.5 22 5.82563 22 8.69444C22 13.0348 16.4106 17.858 13.5893 19.9677C12.6399 20.6776 11.3601 20.6776 10.4107 19.9677Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="/" class="group text-center w-20 flex justify-center items-center gap-1.5 transition-all duration-300 hover:text-accent max-lg:w-full max-lg:text-primary max-lg:justify-start">
+                    <span class="w-0 transition-all duration-300 scale-0 max-lg:w-6 max-lg:scale-100 group-hover:block group-hover:scale-100 group-hover:w-6">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.4107 19.9677C7.58942 17.858 2 13.0348 2 8.69444C2 5.82563 4.10526 3.5 7 3.5C8.5 3.5 10 4 12 6C14 4 15.5 3.5 17 3.5C19.8947 3.5 22 5.82563 22 8.69444C22 13.0348 16.4106 17.858 13.5893 19.9677C12.6399 20.6776 11.3601 20.6776 10.4107 19.9677Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    Connect
+                  </a>
+                </li>
+              </ul>
+              <div class="hidden max-lg:block">
+                <a href="#" class="primary-btn flex rounded-full font-medium text-white capitalize p-px bg-[linear-gradient(96.1deg,var(--color-primary),var(--color-accent))] min-h-11 relative cursor-pointer">
+                      <span class="rounded-full flex gap-1.5 items-center py-2 ps-3.5 pe-12 bg-[linear-gradient(102.38deg,var(--color-accent)_6.52%,var(--color-primary)_93.15%)] min-h-full justify-center shadow-[6px_10px_20px_0px_var(--color-overlay-primary),_inset_0px_0px_6px_0px_var(--color-overlay-dark)] w-full">
+                        Invite Friends
+                        <img src="assets/images/icon/button-icon.svg" alt="" class="absolute w-14 -inset-e-3 top-2">
+                      </span>
+                </a>
+                <a href="#" class="lg:py-2 py-1.5 px-3 flex gap-2 items-center justify-center text-white lg:min-h-[51px] min-h-11 rounded-full border border-white/30 bg-white/25 cursor-pointer mt-1 max-lg:bg-overlay-primary max-lg:border-black/30">
+                    <img src="assets/images/icon/play-icon.svg" alt="" class="lg:w-7 w-6">
+                    App Video
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="flex xl:gap-6 gap-2.5 items-center">
+              <div class="dropdown relative">
+                <button class="dropdown-btn flex gap-2 items-center font-medium text-white cursor-pointer">
+                    <img src="assets/images/icon/en-flag.svg" alt="" class="w-6">
+                    Language
+                </button>
+                <div class="dropdown-menu hidden bg-white border border-accent-soft rounded-2xl md:p-4 p-2 shadow-[0px_16px_30px_0px_var(--color-primary-muted)] w-32 absolute top-9 inset-s-0">
+                    <button class="w-full flex gap-2.5 items-center text-primary-dark cursor-pointer text-sm/normal capitalize border-b border-accent-100 last:border-b-0 py-3 last:pb-0 first:pt-0">
+                        <img src="assets/images/icon/en-flag.svg" alt="" class="w-6">
+                        english
+                    </button>
+                    <button class="w-full flex gap-2.5 items-center text-primary-dark cursor-pointer text-sm/normal capitalize border-b border-accent-100 last:border-b-0 py-3 last:pb-0 first:pt-0">
+                        <img src="assets/images/icon/france-flag.svg" alt="" class="w-6">
+                        france
+                    </button>
+                </div>
+              </div>
+              <a href="#" class="primary-btn inline-flex rounded-full font-medium text-white capitalize p-px bg-[linear-gradient(96.1deg,var(--color-primary),var(--color-accent))] min-h-11 relative cursor-pointer max-lg:hidden">
+                  <span class="border-span absolute top-1/2 left-[calc(50%+1px)] -translate-1/2 lg:w-[calc(100%+7px)] w-[calc(100%+4px)] lg:h-[calc(100%+7px)] h-[calc(100%+4px)]"></span>
+                  <span class="rounded-full flex gap-1.5 items-center py-2 ps-3.5 pe-12 bg-[linear-gradient(102.38deg,var(--color-accent)_6.52%,var(--color-primary)_93.15%)] min-h-full justify-center shadow-[6px_10px_20px_0px_var(--color-overlay-primary),_inset_0px_0px_6px_0px_var(--color-overlay-dark)] w-full">
+                    Invite Friends
+                    <img src="assets/images/icon/button-icon.svg" alt="" class="absolute w-14 -inset-e-3 top-2">
+                  </span>
+              </a>
+              <a href="#" class="lg:py-2 py-1.5 px-3 inline-flex gap-2 items-center justify-center text-white lg:min-h-[51px] min-h-12 rounded-full border border-white/30 bg-white/25 cursor-pointer max-lg:hidden">
+                <img src="assets/images/icon/play-icon.svg" alt="" class="w-7">
+                App Video
+              </a>
+              <button id="menuOpenBtn" class="bg-white md:w-10 w-9 aspect-square rounded-lg justify-center items-center cursor-pointer hidden max-lg:flex">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#4A0075">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                  <g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#4A0075" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+                  </svg>
+              </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+      <main class="gredient-div grow">
+        <section class="banner-sec pt-60 relative">
+            <div class="container max-w-7xl md:px-5 px-4 mx-auto">
+              <div class="flex">
+                  <div class="w-[52%] pt-[70px]">
+                    <h1 class="md:text-6xl/tight text-5xl/tight font-bold text-white mb-3">Real People <br> Real Safety, Real Love</h1>
+                    <p class="lg:text-xl/snug md:text-lg/snug text-base/snug  text-white">Skip the guessing. Instantly connect with people who like you. <span class="font-bold">Download Ready to Date today.</span></p>
+                    <div class="lg:mt-10 md:mt-6 mt-4 flex md:gap-4 gap-2">
+                      <a href="#" class="rounded-lg bg-black py-2 px-4">
+                        <img src="assets/images/logo/app-store-white.svg" alt="" class="max-w-full">
+                      </a>
+                      <a href="#" class="rounded-lg bg-black py-2 px-4">
+                        <img src="assets/images/logo/play-store-white.svg" alt="" class="max-w-full">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="w-[48%] self-end">
+                    <img src="assets/images/banner-img.png" alt="" class="max-w-full">
+                  </div>
+              </div>
+            </div>
+            <!-- <div class="h-64 bg-red-800 absolute bottom-0 left-0 right-0"></div> -->
+        </section>
+        <section class="md:pb-5">
+          <div class="container max-w-7xl md:px-5 px-4 mx-auto">
+            <div class="flex sm:flex-row flex-col justify-between items-start lg:gap-5 gap-2.5">
+              <div class="xl:w-[350px] w-full ">
+              <div class=" p-6 text-center rounded-3xl shadow-[0px_20px_50px_0px_#00000014] backdrop-blur-[30px] bg-white/30">
+                  <img src="assets/images/icon/location-icon.svg" alt="" class="lg:w-24 w-14 lg:mb-2.5 mb-1 mx-auto">
+                  <h5 class="md:text-xl/snug text-lg/snug font-medium text-primary lg:mb-2 mb-1">Real Proximity</h5>
+                  <p class="">Find out who likes you</p>
+              </div>
+              </div>
+              <div class="xl:w-[350px] w-full p-6 text-center rounded-3xl shadow-[0px_20px_50px_0px_#00000014] backdrop-blur-[30px] bg-white/30">
+                  <img src="assets/images/icon/real-safety-icon.svg" alt="" class="lg:w-24 w-14 lg:mb-2.5 mb-1 mx-auto">
+                  <h5 class="md:text-xl/snug text-lg/snug  font-medium text-primary lg:mb-2 mb-1">Real Safety</h5>
+                  <p class="">Trusted space with verified profiles.</p>
+              </div>
+              <div class="xl:w-[350px] w-full p-6 text-center rounded-3xl shadow-[0px_20px_50px_0px_#00000014] backdrop-blur-[30px] bg-white/30">
+                  <img src="assets/images/icon/real-connections-icon.svg" alt="" class="lg:w-24 w-14 lg:mb-2.5 mb-1 mx-auto">
+                  <h5 class="md:text-xl/snug text-lg/snug  font-medium text-primary lg:mb-2 mb-1">Real Connections</h5>
+                  <p class="">No swiping, just real connections.</p>
+              </div>
+            </div>
+          </div>
+        </section> 
+        <section class="lg:py-20 md:py-14 py-10">
+            <div class="container max-w-7xl md:px-5 px-4 mx-auto">
+              <h2 class="md:text-5xl/snug text-4xl/tight font-medium text-primary text-center max-w-2xl mx-auto lg:mb-4 mb-3">Dating with Trust, Clarity, and Confidence</h2>
+              <p class="lg:text-xl/snug md:text-lg/snug text-base/snug max-w-[860px] mx-auto text-center"><span class="text-primary font-bold">Ready to Date</span> shifts dating back to what it was meant to be. Real people, real moments, and real connection. No endless swipes just meaningful opportunities to meet singles in person, anytime and anywhere.</p>
+            </div>
+        </section>
+        <section class="">
+          <div class="container max-w-7xl md:px-5 px-4 mx-auto relative">
+            <!-- Bg Shape -->
+            <img src="assets/images/meet-love-compass-bg-shape-one.png" alt="" class="max-w-32 absolute top-0 -left-3.5 z-0">
+            <img src="assets/images/meet-love-compass-bg-shape-two.png" alt="" class="max-w-20 absolute bottom-0 left-60 z-0">
+            <div class="grid xs:grid-cols-2 grid-cols-1 items-center gap-5 relative z-10">
+              <div class="xl:pe-36">
+                <h2 class="md:text-5xl/snug text-4xl/tight font-medium text-primary max-w-2xl mx-auto lg:mb-4 mb-3">Meet Love Compass</h2>
+                <p>Real connections happen in real moments. Love Compass helps you find them.</p>
+              </div>
+              <div>
+                <img src="assets/images/meet-love-compass-img.png" alt="" class="max-w-full mx-auto">
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="form-sec lg:pt-20 md:py-14 py-10 lg:pb-[120px]">
+          <div class="container max-w-7xl md:px-5 px-4 mx-auto">
+            <div class="p-px bg-[linear-gradient(327.65deg,rgba(255,255,255,0.58)_3.47%,rgba(255,255,255,0)_49.05%,rgba(255,255,255,0.58)_99.23%)] lg:rounded-[54px] rounded-3xl">
+              <div class="form-box lg:rounded-[54px] rounded-3xl">
+                <div class="lg:p-14 xs:p-5 p-3 lg:rounded-[54px] rounded-3xl bg-[radial-gradient(115.38%_185.8%_at_31.1%_-27.5%,#F243BC_0%,rgba(100,19,188,0.94)_50.55%,rgba(74,0,117,0.94)_73.96%,#F77479_98%)]">
+                  <div class="flex sm:flex-row flex-col 2xl:gap-[70px] lg:gap-10 gap-6 items-center">
+                    <div class="sm:w-[52%] w-full lg:rounded-3xl rounded-xl lg:p-6 xs:p-4 p-3 shadow-[0px_10px_40px_0px_#00000029]">
+                      <h3 class="text-white font-medium md:text-[40px] md:leading-12 text-3xl/snug mb-1">Register Now</h3>
+                      <p class="text-white">To know more about You.</p>
+                      <form action="" class="lg:mt-6 mt-4">
+                        <div class="md:mb-6 mb-4">
+                          <label for="" class="text-base/snug text-white font-normal sm:mb-2 mb-1 block">Full name</label>
+                            <div class="flex rounded-full border border-[#B28CC8] bg-white items-center overflow-hidden">
+                              <input type="text" placeholder="Enter your full name" class="w-full sm:min-h-[46px] min-h-10 md:ps-4 ps-3 py-2 border-0 focus-within:outline-none focus:border-0 text-sm/tight font-normal placeholder:text-secondary text-primary">
+                              <span class="md:px-4 px-3">
+                                <img src="assets/images/icon/profile-icon.svg" alt="" class="min-w-4 w-4">
+                              </span>
+                            </div>
+                        </div>
+                        <div class="md:mb-6 mb-4">
+                          <label for="" class="text-base/snug text-white font-normal sm:mb-2 mb-1 block">Mobile number</label>
+                            <div class="flex rounded-full border border-[#B28CC8] bg-white items-center overflow-hidden">
+                              <input type="tel" placeholder="Mobile number" class="w-full sm:min-h-[46px] min-h-10 md:ps-4 ps-3 py-2 border-0 focus-within:outline-none focus:border-0 text-sm/tight font-normal placeholder:text-secondary text-primary">
+                              <span class="md:px-4 px-3">
+                                <img src="assets/images/icon/mobile-input-icon.svg" alt="" class="min-w-4 w-4">
+                              </span>
+                            </div>
+                        </div>
+                        <div class="md:mb-6 mb-4">
+                          <label for="" class="text-base/snug text-white font-normal sm:mb-2 mb-1 block">Your email</label>
+                            <div class="flex rounded-full border border-[#B28CC8] bg-white items-center overflow-hidden">
+                              <input type="email" placeholder="Enter your email" class="w-full sm:min-h-[46px] min-h-10 md:ps-4 ps-3 py-2 border-0 focus-within:outline-none focus:border-0 text-sm/tight font-normal placeholder:text-secondary text-primary">
+                              <span class="md:px-4 px-3">
+                                <img src="assets/images/icon/massage-icon.svg" alt="" class="min-w-4 w-4">
+                              </span>
+                            </div>
+                        </div>
+                        <div class="md:mb-6 mb-4 flex items-center gap-1">
+                          <input type="checkbox" id="acceptAll" class="custom-checkbox appearance-none w-4 aspect-square rounded-full border border-white">
+                          <label for="acceptAll" class="text-xs/snug font-medium text-white cursor-pointer">I hereby accept all the terms and conditions & privacy policy</label>
+                        </div>
+                        <button class="primary-btn inline-flex rounded-full font-medium text-white capitalize p-px bg-[linear-gradient(96.1deg,var(--color-primary),var(--color-accent))] min-h-11 relative cursor-pointer">
+                            <span class="border-span absolute top-1/2 left-1/2 -translate-1/2 lg:w-[calc(100%+7px)] w-[calc(100%+4px)] lg:h-[calc(100%+7px)] h-[calc(100%+4px)]"></span>
+                            <span class="rounded-full flex gap-1.5 items-center py-2 ps-3.5 pe-12 bg-[linear-gradient(102.38deg,var(--color-accent)_6.52%,var(--color-primary)_93.15%)] min-h-full justify-center shadow-[6px_10px_20px_0px_var(--color-overlay-primary),_inset_0px_0px_6px_0px_var(--color-overlay-dark)] w-full">
+                              Register Now
+                              <img src="assets/images/icon/button-icon.svg" alt="" class="absolute w-14 -inset-e-3 top-2">
+                            </span>
+                        </button>
+                      </form>
+                    </div>
+                    <div class="sm:w-[48%] w-full 2xl:pe-11">
+                      <h2 class="md:text-[40px] md:leading-12 text-3xl/snug text-white/90">Bring Dating Back to Real Life. <br> <span class="font-bold">Download Ready to Date Today.</span></h2>
+                      <button class="primary-btn inline-flex rounded-full font-medium text-white capitalize p-px bg-[linear-gradient(96.1deg,var(--color-primary),var(--color-accent))] min-h-11 relative cursor-pointer lg:mt-10 md:mt-6 mt-4">
+                          <span class="border-span absolute top-1/2 left-1/2 -translate-1/2 lg:w-[calc(100%+7px)] w-[calc(100%+4px)] lg:h-[calc(100%+7px)] h-[calc(100%+4px)]"></span>
+                          <span class="rounded-full flex gap-1.5 items-center py-2 ps-3.5 pe-12 bg-[linear-gradient(102.38deg,var(--color-accent)_6.52%,var(--color-primary)_93.15%)] min-h-full justify-center shadow-[6px_10px_20px_0px_var(--color-overlay-primary),_inset_0px_0px_6px_0px_var(--color-overlay-dark)] w-full">
+                            Download Now
+                            <img src="assets/images/icon/button-icon.svg" alt="" class="absolute w-14 -inset-e-3 top-2">
+                          </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      
+        <!-- ======= Footer ======= -->
+        <footer class="site-footer">
+          <div class="container max-w-7xl md:px-5 px-4 mx-auto">
+            <div class="border-y border-accent pt-10 md:pb-[60px] pb-10 flex flex-col sm:gap-6 gap-5">
+                <div class="flex justify-between items-center sm:flex-row flex-col gap-5">
+                  <a href="/" class="block">
+                    <img src="assets/images/footer-logo.svg" alt="" class="max-w-28 w-full">
+                  </a>
+                  <ul class="flex lg:gap-6 gap-4 items-center social-media">
+                    <li>
+                      <a href="#" class="inline-flex justify-center items-center p-1 rounded-full border border-accent bg-primary-50 hover:bg-accent transition-all duration-300 lg:w-12 w-9 aspect-square text-accent hover:text-white">
+                        <svg class="lg:w-8 w-6 h-auto" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.33301 16C3.33301 10.0289 3.33301 7.0433 5.18799 5.1883C7.04299 3.33331 10.0286 3.33331 15.9997 3.33331C21.9707 3.33331 24.9563 3.33331 26.8114 5.1883C28.6663 7.0433 28.6663 10.0289 28.6663 16C28.6663 21.971 28.6663 24.9566 26.8114 26.8117C24.9563 28.6666 21.9707 28.6666 15.9997 28.6666C10.0286 28.6666 7.04299 28.6666 5.18799 26.8117C3.33301 24.9566 3.33301 21.971 3.33301 16Z" stroke="#4A0075" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M22 16C22 19.3137 19.3137 22 16 22C12.6863 22 10 19.3137 10 16C10 12.6863 12.6863 10 16 10C19.3137 10 22 12.6863 22 16Z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M23.344 8.66669H23.332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="inline-flex justify-center items-center p-1 rounded-full border border-accent bg-primary-50 hover:bg-accent transition-all duration-300 lg:w-12 w-9 aspect-square text-accent hover:text-white">
+                        <svg class="lg:w-8 w-6 h-auto" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.3335 16C3.3335 10.0289 3.3335 7.04333 5.18848 5.18833C7.04348 3.33334 10.029 3.33334 16.0002 3.33334C21.9712 3.33334 24.9568 3.33334 26.8119 5.18833C28.6668 7.04333 28.6668 10.0289 28.6668 16C28.6668 21.9711 28.6668 24.9567 26.8119 26.8117C24.9568 28.6667 21.9712 28.6667 16.0002 28.6667C10.029 28.6667 7.04348 28.6667 5.18848 26.8117C3.3335 24.9567 3.3335 21.9711 3.3335 16Z" stroke="#4A0075" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M14.048 14.6767C12.9546 14.5221 10.4624 14.7779 9.24031 17.0376C8.01823 19.2972 9.2499 21.6491 10.0185 22.5425C10.7775 23.3784 13.3164 25.0455 15.8752 23.5C16.5095 23.1169 18.0695 22 18.0695 19.7537L17.9652 7.97528C17.7923 9.27227 19.225 12.3143 23.3042 12.6743" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="inline-flex justify-center items-center p-1 rounded-full border border-accent bg-primary-50 hover:bg-accent transition-all duration-300 lg:w-12 w-9 aspect-square text-accent hover:text-white">
+                        <svg class="lg:w-8 w-6 h-auto" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.0003 27.3334C18.4133 27.3334 20.7271 27.095 22.8715 26.6579C25.5501 26.1119 26.8894 25.8388 28.1115 24.2675C29.3337 22.6962 29.3337 20.8924 29.3337 17.2847V14.7154C29.3337 11.1077 29.3337 9.30385 28.1115 7.73251C26.8894 6.16119 25.5501 5.88819 22.8715 5.34218C20.7271 4.90505 18.4133 4.66669 16.0003 4.66669C13.5874 4.66669 11.2735 4.90505 9.12907 5.34218C6.45054 5.88819 5.11127 6.16119 3.88913 7.73251C2.66699 9.30385 2.66699 11.1077 2.66699 14.7154V17.2847C2.66699 20.8924 2.66699 22.6962 3.88913 24.2675C5.11127 25.8388 6.45054 26.1119 9.12907 26.6579C11.2735 27.095 13.5874 27.3334 16.0003 27.3334Z" stroke="#4A0075" stroke-width="1.5"/>
+                        <path d="M21.2828 16.4172C21.0849 17.2249 20.0321 17.8051 17.9265 18.9655C15.6363 20.2273 14.4912 20.8584 13.5637 20.6153C13.2496 20.5329 12.9603 20.3881 12.7173 20.1917C12 19.6119 12 18.4079 12 16C12 13.5921 12 12.3882 12.7173 11.8082C12.9603 11.6118 13.2496 11.4671 13.5637 11.3847C14.4912 11.1416 15.6363 11.7726 17.9265 13.0346C20.0321 14.1949 21.0849 14.7751 21.2828 15.5828C21.3501 15.8577 21.3501 16.1423 21.2828 16.4172Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                        </svg>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="inline-flex justify-center items-center p-1 rounded-full border border-accent bg-primary-50 hover:bg-accent transition-all duration-300 lg:w-12 w-9 aspect-square text-accent hover:text-white">
+                        <svg class="lg:w-8 w-6 h-auto" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.33301 16C3.33301 10.0289 3.33301 7.0433 5.18799 5.1883C7.04299 3.33331 10.0286 3.33331 15.9996 3.33331C21.9708 3.33331 24.9563 3.33331 26.8114 5.1883C28.6663 7.0433 28.6663 10.0289 28.6663 16C28.6663 21.971 28.6663 24.9566 26.8114 26.8117C24.9563 28.6666 21.9708 28.6666 15.9996 28.6666C10.0286 28.6666 7.04299 28.6666 5.18799 26.8117C3.33301 24.9566 3.33301 21.971 3.33301 16Z" stroke="#4A0075" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.33301 22.6666L14.9244 17.0753M14.9244 17.0753L9.33301 9.33331H13.0367L17.075 14.9246M14.9244 17.0753L18.9626 22.6666H22.6663L17.075 14.9246M22.6663 9.33331L17.075 14.9246" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-6 sm:gap-4 gap-5">
+                  <p >You deserve something better than confusion. <span class="text-primary font-bold">Ready to Date</span> is for people who want clarity, safety, and a real chance at love.</p>
+                  <div class="">
+                    <h5 class="font-bold md:text-xl/snug text-lg/snug text-primary mb-2">Download the App</h5>
+                    <div class="flex lg:gap-4 gap-2 lg:mb-6 mb-4">
+                      <a href="#" class="rounded-lg py-2 px-4 bg-white border border-accent-soft block">
+                        <img src="assets/images/logo/app-store.svg" alt="" class="max-w-full">
+                      </a>
+                      <a href="#" class="rounded-lg py-2 px-4 bg-white border border-accent-soft block">
+                        <img src="assets/images/logo/play-store.svg" alt="" class="max-w-full">
+                      </a>
+                    </div>
+                    <a href="#" class="block text-sm/snug hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="block text-sm/snug hover:text-primary lg:mt-3 mt-1">Terms & Conditions</a>
+                  </div>
+                  <div class="">
+                    <h3 class="font-medium md:text-3xl/snug text-2xl/snug text-primary mb-2">Subscribe</h3>
+                    <p>Be the first to know about exclusive events for singles.</p>
+                    <div class="flex rounded-full border border-[#B28CC8] bg-white lg:my-6 my-4 items-center overflow-hidden">
+                      <input type="email" placeholder="Enter your email" class="w-full sm:min-h-[46px] min-h-10 md:ps-4 ps-3 py-2 border-0 focus-within:outline-none focus:border-0 text-sm/tight font-normal placeholder:text-secondary text-primary">
+                      <span class="md:px-4 px-3">
+                        <img src="assets/images/icon/massage-icon.svg" alt="" class="min-w-4 w-4">
+                      </span>
+                    </div>
+                    <button class="primary-btn inline-flex rounded-full font-medium text-white capitalize p-px bg-[linear-gradient(96.1deg,var(--color-primary),var(--color-accent))] min-h-11 relative cursor-pointer">
+                        <span class="border-span absolute top-1/2 left-1/2 -translate-1/2 lg:w-[calc(100%+7px)] w-[calc(100%+4px)] lg:h-[calc(100%+7px)] h-[calc(100%+4px)]"></span>
+                        <span class="rounded-full flex gap-1.5 items-center py-2 ps-3.5 pe-12 bg-[linear-gradient(102.38deg,var(--color-accent)_6.52%,var(--color-primary)_93.15%)] min-h-full justify-center shadow-[6px_10px_20px_0px_var(--color-overlay-primary),_inset_0px_0px_6px_0px_var(--color-overlay-dark)] w-full">
+                          Subscribe Now
+                          <img src="assets/images/icon/button-icon.svg" alt="" class="absolute w-14 -inset-e-3 top-2">
+                        </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-between gap-1 items-center md:py-7 py-4 sm:flex-row flex-col">
+                <p class="m-0 text-sm/snug block">© Ready to date 2025 . All right reserved.</p>
+                <a href="mailto:info@readytodate.ca" class="block text-sm/snug hover:text-primary">info@readytodate.ca</a>
+              </div>
+          </div>
+        </footer>
+    </main>
+  </body>
+</html>

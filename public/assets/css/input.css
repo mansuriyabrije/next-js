@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* Fonts */
+@font-face {
+    font-family: 'Lufga';
+    src: url('../fonts/Lufga-Medium.eot');
+    src: url('../fonts/Lufga-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Lufga-Medium.woff2') format('woff2'),
+        url('../fonts/Lufga-Medium.woff') format('woff'),
+        url('../fonts/Lufga-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lufga';
+    src: url('../fonts/Lufga-Regular.eot');
+    src: url('../fonts/Lufga-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Lufga-Regular.woff2') format('woff2'),
+        url('../fonts/Lufga-Regular.woff') format('woff'),
+        url('../fonts/Lufga-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lufga';
+    src: url('../fonts/Lufga-Bold.eot');
+    src: url('../fonts/Lufga-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Lufga-Bold.woff2') format('woff2'),
+        url('../fonts/Lufga-Bold.woff') format('woff'),
+        url('../fonts/Lufga-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@theme {
+	--font-lufga: 'Lufga';    
+    --color-primary: #4A0075;        
+    --color-primary-light: #F9EFFF;  
+    --color-primary-muted: #6D2F9114;
+    --color-primary-dark: #3B005E;
+    --color-primary-50: #F7EAFF;
+    --color-secondary: #303030;
+    --color-accent: #F243BC;         
+    --color-accent-light: #FFEFFA;  
+    --color-accent-100: #FCD9F2; 
+    --color-accent-soft: #FEECF8;
+    --color-neutral-light: #FAFAFA; 
+    --color-neutral-100: #F5F5F5;
+    --color-overlay-dark: #00000057;
+    --color-overlay-primary: #4A00754D;
+    --breakpoint-xs:480px;
+}
+body{font-family: var(--font-lufga);}
+.primary-btn .border-span{background: url('../images/border-btn.png') no-repeat center;background-size: 100% 100%;}
+.gredient-div{background: url('../images/main-gredient.png') no-repeat center top;background-size: 100% 100%;}
+.site-footer .primary-btn .border-span{background: url('../images/primary-border-dashed.png') no-repeat center;background-size: 100% 100%;}
+.site-footer .social-media a:hover svg path:nth-child(1){stroke: white;}
+.banner-sec{background: url('../images/banner-bg.png') no-repeat center;background-size: 100% 100%;}
+.form-sec .form-box{background: url('../images/background-img.png') no-repeat center;background-size: cover;}
+.custom-checkbox:checked{background: url('../images/icon/white-check-icon.svg') no-repeat center;background-size: 8px;}
+/* Responsive CSS */
+@media screen and (max-width:1024px) {
+    .mobile-menu{transform: translateX(100%);}
+    .mobile-menu.active{transform: translateX(0);}
+    #overlay.active{display: block !important;}
+}
