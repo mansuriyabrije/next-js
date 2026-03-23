@@ -37,14 +37,6 @@ export default function SocialIcons() {
           </svg>
         </a>
       </li>
-      <li>
-        <a href="#" className={iconLinkClass} aria-label="Facebook">
-          <svg className="lg:w-8 w-6 h-auto" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.33301 16C3.33301 10.0289 3.33301 7.0433 5.18799 5.1883C7.04299 3.33331 10.0286 3.33331 15.9997 3.33331C21.9707 3.33331 24.9563 3.33331 26.8114 5.1883C28.6663 7.0433 28.6663 10.0289 28.6663 16C28.6663 21.971 28.6663 24.9566 26.8114 26.8117C24.9563 28.6666 21.9707 28.6666 15.9997 28.6666C10.0286 28.6666 7.04299 28.6666 5.18799 26.8117C3.33301 24.9566 3.33301 21.971 3.33301 16Z" stroke="#4A0075" strokeWidth="1.5" strokeLinejoin="round" />
-            <path d="M18.5 10.6667H16.8333C15.7288 10.6667 14.8333 11.5621 14.8333 12.6667V14.3334H18.5L18 17.6667H14.8333V22.0001H11.5V17.6667H9.33331V14.3334H11.5V12.3334C11.5 9.94012 13.4408 8.00008 15.8333 8.00008H18.5V10.6667Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </a>
-      </li>
     </ul>
   );
 }

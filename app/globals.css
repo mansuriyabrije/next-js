@@ -29,7 +29,7 @@
 
   body {
     @apply text-base/normal font-normal text-secondary flex flex-col min-h-dvh overflow-x-hidden relative;
-    font-family: var(--font-lufga, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif);
+    font-family: var(--font-lufga), "Lufga", system-ui, sans-serif;
   }
 }
 
@@ -69,7 +69,7 @@
    Custom background / behavior
    (kept for current scaffold parity)
    ========================= */
-.border-span {
+.primary-btn .border-span {
   background: url("/assets/images/border-btn.png") no-repeat center;
   background-size: 100% 100%;
 }

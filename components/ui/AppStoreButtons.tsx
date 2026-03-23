@@ -1,22 +1,24 @@
 import { content } from "@/lib/constants/content";
 
 type AppStoreButtonsProps = {
-  variant: "dark" | "light";
+  variant: "default" | "light" | "dark";
 };
 
 export default function AppStoreButtons({ variant }: AppStoreButtonsProps) {
+  const resolvedVariant = variant === "dark" ? "default" : variant;
+
   const buttonClass =
-    variant === "dark"
+    resolvedVariant === "default"
       ? "rounded-lg bg-black py-2 px-4"
-      : "rounded-lg py-2 px-4 bg-white border border-accent-soft";
+      : "rounded-lg py-2 px-4 bg-white border border-accent-soft block";
 
   const appStoreSrc =
-    variant === "dark"
+    resolvedVariant === "default"
       ? "/assets/images/logo/app-store-white.svg"
       : "/assets/images/logo/app-store.svg";
 
   const playStoreSrc =
-    variant === "dark"
+    resolvedVariant === "default"
       ? "/assets/images/logo/play-store-white.svg"
       : "/assets/images/logo/play-store.svg";
 

@@ -1,6 +1,17 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
+import localFont from "next/font/local";
+
+const lufga = localFont({
+  src: [
+    { path: "../public/fonts/Lufga-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/Lufga-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/Lufga-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-lufga",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Ready to Date — Real People, Real Safety, Real Love",
@@ -23,12 +34,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // TODO: add Lufga .woff2 files to public/fonts/ before production.
-  const htmlClassName = "min-h-full";
-  const htmlStyle = { fontFamily: "system-ui, sans-serif" };
-
   return (
-    <html lang="en" className={htmlClassName} style={htmlStyle}>
+    <html lang="en" className={`min-h-full ${lufga.variable}`}>
       <body>
         {children}
         <Script id="asset-checker" strategy="afterInteractive">{`
