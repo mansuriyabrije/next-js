@@ -1,9 +1,10 @@
 import Image from "next/image";
 import AppStoreButtons from "@/components/ui/AppStoreButtons";
-import { content } from "@/lib/constants/content";
+import { HeroContent } from "@/lib/constants/content";
 
-export default function HeroSection() {
-  const titleLines = content.hero.title.split("\n");
+export default function HeroSection({ content }: { content: HeroContent }) {
+  if (!content) return null;
+  const titleLines = (content.title || "").split("\n");
 
   return (
     <section className="banner-sec pt-60 relative">
@@ -16,7 +17,7 @@ export default function HeroSection() {
               {titleLines[1]}
             </h1>
             <p className="lg:text-xl/snug md:text-lg/snug text-base/snug text-white">
-              {content.hero.subtitle} <span className="font-bold">{content.hero.subtitleBold}</span>
+              {content.subtitle} <span className="font-bold">{content.subtitleBold}</span>
             </p>
             <div className="lg:mt-10 md:mt-6 mt-4">
               <AppStoreButtons variant="dark" />

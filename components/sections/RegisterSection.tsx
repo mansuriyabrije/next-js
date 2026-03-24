@@ -1,7 +1,14 @@
 import RegisterForm from "@/components/forms/RegisterForm";
 import DownloadCTA from "@/components/sections/DownloadCTA";
+import { DownloadCtaContent } from "@/lib/constants/content";
 
-export default function RegisterSection() {
+export default function RegisterSection({ 
+  content,
+  registerMessages
+}: { 
+  content: DownloadCtaContent;
+  registerMessages?: any;
+}) {
   return (
     <section className="form-sec lg:pt-20 md:py-14 py-10 lg:pb-[120px]">
       <div className="container max-w-7xl md:px-5 px-4 mx-auto">
@@ -11,12 +18,12 @@ export default function RegisterSection() {
               <div className="flex sm:flex-row flex-col 2xl:gap-[70px] lg:gap-10 gap-6 items-center">
                 <div className="sm:w-[52%] w-full lg:rounded-3xl rounded-xl lg:p-6 xs:p-4 p-3 shadow-[0px_10px_40px_0px_#00000029]">
                   <h3 className="text-white font-medium md:text-[40px] md:leading-12 text-3xl/snug mb-1">
-                    Register Now
+                    {registerMessages?.title || "Register Now"}
                   </h3>
-                  <p className="text-white">To know more about You.</p>
-                  <RegisterForm />
+                  <p className="text-white">{registerMessages?.subtitle || "To know more about You."}</p>
+                  <RegisterForm messages={registerMessages?.labels} />
                 </div>
-                <DownloadCTA />
+                <DownloadCTA content={content} />
               </div>
             </div>
           </div>

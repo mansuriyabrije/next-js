@@ -1,11 +1,12 @@
-import { content } from "@/lib/constants/content";
+import { FeatureItem } from "@/lib/constants/content";
 
-export default function FeatureCards() {
+export default function FeatureCards({ content }: { content: FeatureItem[] }) {
+  if (!content || !Array.isArray(content)) return null;
   return (
     <section className="md:pb-5">
       <div className="container max-w-7xl md:px-5 px-4 mx-auto">
         <div className="flex sm:flex-row flex-col justify-between items-start lg:gap-5 gap-2.5">
-          {content.features.map((feature) => (
+          {content.map((feature) => (
             <div key={feature.id} className="xl:w-[350px] w-full">
               <div className="card-glass">
                 <img src={feature.icon} alt="" className="lg:w-24 w-14 lg:mb-2.5 mb-1 mx-auto" />

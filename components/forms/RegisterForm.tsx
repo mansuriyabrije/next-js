@@ -8,7 +8,21 @@ import { RegisterSchema, type RegisterInput } from "@/lib/validation/register";
 
 type SubmitStatus = "idle" | "success" | "error";
 
-export default function RegisterForm() {
+export default function RegisterForm({ messages }: { messages?: any }) {
+  const t = messages || {
+    fullName: "Full name",
+    namePlaceholder: "Enter your full name",
+    mobileNumber: "Mobile number",
+    phonePlaceholder: "Mobile number",
+    yourEmail: "Your email",
+    emailPlaceholder: "Enter your email",
+    acceptTerms: "I hereby accept all the terms and conditions & privacy policy",
+    button: "Register Now",
+    registering: "Registering...",
+    success: "✓ Registration successful! We'll be in touch.",
+    error: "Something went wrong. Please try again."
+  };
+
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
 
   const {
@@ -39,14 +53,14 @@ export default function RegisterForm() {
     <form onSubmit={onSubmit} className="lg:mt-6 mt-4">
       <div className="md:mb-6 mb-4">
         <label htmlFor="register-name" className="text-base/snug text-white font-normal sm:mb-2 mb-1 block">
-          Full name
+          {t.fullName}
         </label>
         <div className="input-field">
           <input
             id="register-name"
             {...register("name")}
             type="text"
-            placeholder="Enter your full name"
+            placeholder={t.namePlaceholder}
             className="input-inner"
             aria-required="true"
             aria-describedby="register-name-error"
@@ -64,14 +78,14 @@ export default function RegisterForm() {
 
       <div className="md:mb-6 mb-4">
         <label htmlFor="register-phone" className="text-base/snug text-white font-normal sm:mb-2 mb-1 block">
-          Mobile number
+          {t.mobileNumber}
         </label>
         <div className="input-field">
           <input
             id="register-phone"
             {...register("phone")}
             type="tel"
-            placeholder="Mobile number"
+            placeholder={t.phonePlaceholder}
             className="input-inner"
             aria-required="true"
             aria-describedby="register-phone-error"
@@ -89,14 +103,14 @@ export default function RegisterForm() {
 
       <div className="md:mb-6 mb-4">
         <label htmlFor="register-email" className="text-base/snug text-white font-normal sm:mb-2 mb-1 block">
-          Your email
+          {t.yourEmail}
         </label>
         <div className="input-field">
           <input
             id="register-email"
             {...register("email")}
             type="email"
-            placeholder="Enter your email"
+            placeholder={t.emailPlaceholder}
             className="input-inner"
             aria-required="true"
             aria-describedby="register-email-error"
@@ -120,7 +134,7 @@ export default function RegisterForm() {
           className="custom-checkbox appearance-none w-4 aspect-square rounded-full border border-white"
         />
         <label htmlFor="acceptAll" className="text-xs/snug font-medium text-white cursor-pointer">
-          I hereby accept all the terms and conditions & privacy policy
+          {t.acceptTerms}
         </label>
       </div>
       {errors.acceptTerms && (
@@ -130,17 +144,17 @@ export default function RegisterForm() {
       )}
 
       <PrimaryButton type="submit" className={isSubmitting ? "opacity-70" : ""}>
-        {isSubmitting ? "Registering..." : "Register Now"}
+        {isSubmitting ? t.registering : t.button}
       </PrimaryButton>
 
       {submitStatus === "success" && (
         <p role="alert" className="text-green-300 text-sm mt-3">
-          ✓ Registration successful! We&apos;ll be in touch.
+          {t.success}
         </p>
       )}
       {submitStatus === "error" && (
         <p role="alert" className="text-red-300 text-sm mt-3">
-          Something went wrong. Please try again.
+          {t.error}
         </p>
       )}
     </form>

@@ -1,0 +1,89 @@
+{
+  "common": {
+    "inviteFriends": "Inviter des Amis",
+    "appVideo": "Vidéo de l'App",
+    "home": "Accueil",
+    "about": "À Propos",
+    "connect": "Se Connecter",
+    "subscribe": {
+      "title": "S'abonner",
+      "subtitle": "Soyez les premiers informés des événements exclusifs pour célibataires.",
+      "placeholder": "Entrez votre email",
+      "button": "S'abonner maintenant",
+      "subscribing": "Inscription...",
+      "success": "✓ Vous êtes abonné !",
+      "error": "Un problème est survenu. Veuillez réessayer."
+    },
+    "register": {
+      "title": "Inscrivez-vous maintenant",
+      "subtitle": "Pour en savoir plus sur vous.",
+      "labels": {
+        "fullName": "Nom complet",
+        "namePlaceholder": "Entrez votre nom complet",
+        "mobileNumber": "Numéro de téléphone",
+        "phonePlaceholder": "Numéro de téléphone",
+        "yourEmail": "Votre email",
+        "emailPlaceholder": "Entrez votre email",
+        "acceptTerms": "J'accepte par la présente toutes les conditions générales et la politique de confidentialité",
+        "button": "S'inscrire maintenant",
+        "registering": "Inscription...",
+        "success": "✓ Inscription réussie ! Nous vous contacterons.",
+        "error": "Un problème est survenu. Veuillez réessayer."
+      }
+    }
+  },
+  "site": {
+    "hero": {
+      "title": "De Vraies Personnes\nVraie Sécurité, Vrai Amour",
+      "subtitle": "Oubliez les devinettes. Connectez-vous instantanément avec des gens qui vous apprécient.",
+      "subtitleBold": "Téléchargez Ready to Date dès aujourd'hui."
+    },
+    "features": [
+      {
+        "id": "real-proximity",
+        "icon": "/assets/images/icon/location-icon.svg",
+        "title": "Vraie Proximité",
+        "description": "Découvrez qui vous apprécie"
+      },
+      {
+        "id": "real-safety",
+        "icon": "/assets/images/icon/real-safety-icon.svg",
+        "title": "Vraie Sécurité",
+        "description": "Un espace de confiance avec des profils vérifiés."
+      },
+      {
+        "id": "real-connections",
+        "icon": "/assets/images/icon/real-connections-icon.svg",
+        "title": "Vraies Connexions",
+        "description": "Pas de balayage, juste de vraies connexions."
+      }
+    ],
+    "trust": {
+      "heading": "Dater avec Confiance, Clarté et Sérénité",
+      "brandName": "Ready to Date",
+      "body": "ramène les rencontres à ce qu'elles devraient être. De vraies personnes, de vrais moments et de vraies connexions. Pas de balayages interminables, juste des opportunités significatives de rencontrer des célibataires en personne, n'importe quand et n'importe où."
+    },
+    "loveCompass": {
+      "heading": "Rencontrez Love Compass",
+      "body": "Les vraies connexions arrivent dans les vrais moments. Love Compass vous aide à les trouver."
+    },
+    "footer": {
+      "copyright": "© Ready to date 2025 . Tous droits réservés.",
+      "about": "Vous méritez mieux que la confusion. Ready to Date est destiné aux personnes qui recherchent la clarté, la sécurité et une réelle chance de trouver l'amour.",
+      "download": "Télécharger l'application",
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions générales"
+    },
+    "downloadCta": {
+      "heading": "Ramenez les rencontres à la vraie vie.",
+      "highlighted": "Téléchargez Ready to Date aujourd'hui.",
+      "buttonLabel": "Télécharger maintenant"
+    },
+    "appStores": {
+      "appStoreAriaLabel": "Télécharger dans l'App Store",
+      "appStoreAlt": "Télécharger dans l'App Store",
+      "playStoreAriaLabel": "Disponible sur Google Play",
+      "playStoreAlt": "Disponible sur Google Play"
+    }
+  }
+}

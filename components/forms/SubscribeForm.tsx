@@ -8,7 +8,15 @@ import { SubscribeSchema, type SubscribeInput } from "@/lib/validation/subscribe
 
 type SubmitStatus = "idle" | "success" | "error";
 
-export default function SubscribeForm() {
+export default function SubscribeForm({ messages }: { messages?: any }) {
+  const t = messages || {
+    placeholder: "Enter your email",
+    button: "Subscribe Now",
+    subscribing: "Subscribing...",
+    success: "✓ You're subscribed!",
+    error: "Something went wrong. Please try again."
+  };
+  
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
 
   const {
@@ -42,7 +50,7 @@ export default function SubscribeForm() {
           id="subscribe-email"
           type="email"
           {...register("email")}
-          placeholder="Enter your email"
+          placeholder={t.placeholder}
           className="input-inner"
           aria-required="true"
           aria-describedby="subscribe-error"
@@ -59,17 +67,17 @@ export default function SubscribeForm() {
       )}
 
       <PrimaryButton type="submit" className={isSubmitting ? "opacity-70" : ""}>
-        {isSubmitting ? "Subscribing..." : "Subscribe Now"}
+        {isSubmitting ? t.subscribing : t.button}
       </PrimaryButton>
 
       {submitStatus === "success" && (
         <p role="alert" className="text-green-700 text-sm mt-2">
-          ✓ You&apos;re subscribed!
+          {t.success}
         </p>
       )}
       {submitStatus === "error" && (
         <p role="alert" className="text-red-500 text-sm mt-2">
-          Something went wrong. Please try again.
+          {t.error}
         </p>
       )}
     </form>

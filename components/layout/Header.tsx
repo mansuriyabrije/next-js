@@ -18,11 +18,36 @@ const heartIcon = (
   </svg>
 );
 
-export default function Header() {
+export default function Header({ 
+  locale = "en", 
+  messages 
+}: { 
+  locale?: string; 
+  messages?: any 
+}) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const [selectedLanguage, setSelectedLanguage] = useState(locale);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  const handleLanguageChange = (newLocale: string) => {
+    console.log(`[Header] Changing locale from ${selectedLanguage} to ${newLocale}`);
+    setSelectedLanguage(newLocale);
+    
+    // Using a more robust cookie string
+    document.cookie = `locale=${newLocale}; Path=/; Max-Age=31536000; SameSite=Lax`;
+    
+    console.log(`[Header] Cookie set. Current document.cookie: ${document.cookie}`);
+    
+    // Short timeout to ensure cookie persists before reload (optional, but sometimes helps)
+    setTimeout(() => {
+      window.location.reload();
+    }, 10);
+  };
+
+  useEffect(() => {
+    setSelectedLanguage(locale);
+  }, [locale]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -39,6 +64,12 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMobileMenuOpen]);
 
+  // Localized navigation items
+  const localizedNavItems = navItems.map((item) => ({
+    ...item,
+    label: messages ? (messages[item.label.toLowerCase()] || item.label) : item.label,
+  }));
+
   return (
     <>
       {isMobileMenuOpen && (
@@ -53,7 +84,7 @@ export default function Header() {
         <MobileMenu
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
-          navItems={navItems}
+          navItems={localizedNavItems}
         />
       </div>
 
@@ -66,7 +97,7 @@ export default function Header() {
               </a>
 
               <ul className="hidden lg:flex xl:gap-6 gap-3 text-white font-medium">
-                {navItems.map((item) => (
+                {localizedNavItems.map((item) => (
                   <li key={item.label}>
                     <a
                       href={item.href}
@@ -87,21 +118,20 @@ export default function Header() {
               <LanguageDropdown
                 items={languages}
                 value={selectedLanguage}
-                onChange={setSelectedLanguage}
+                onChange={handleLanguageChange}
               />
 
               <PrimaryButton href="#" className="">
-                Invite Friends
+                {messages?.inviteFriends || "Invite Friends"}
               </PrimaryButton>
 
-              {/* TODO: replace placeholder href with real app video URL */}
               <a
                 href="#"
                 aria-label="Watch app video"
                 className="lg:py-2 py-1.5 px-3 inline-flex gap-2 items-center justify-center text-white lg:min-h-[51px] min-h-12 rounded-full border border-white/30 bg-white/25 cursor-pointer"
               >
                 <img src="/assets/images/icon/play-icon.svg" alt="" className="w-7" />
-                App Video
+                {messages?.appVideo || "App Video"}
               </a>
 
               <button
