@@ -38,9 +38,9 @@ export default function RegisterForm({ messages }: { messages?: any }) {
   });
 
   const onSubmit = handleSubmit(async (data) => {
-    setSubmitStatus("idle");
+
     setApiMessage("");
-    
+
     try {
       const response = await axios.post("/api/register", data);
       const result = response.data;
@@ -54,7 +54,7 @@ export default function RegisterForm({ messages }: { messages?: any }) {
       setApiMessage(result.message || t.success);
     } catch (error: any) {
       setSubmitStatus("error");
-      
+
       const result = error.response?.data || {};
       setApiMessage(result.message || t.error);
 
@@ -66,9 +66,9 @@ export default function RegisterForm({ messages }: { messages?: any }) {
           if (["first_name", "last_name", "full_name", "name"].includes(errorKey.toLowerCase())) {
             formField = "full_name";
           }
-          
-          const errorMessage = Array.isArray(result.errors[errorKey]) 
-            ? result.errors[errorKey][0] 
+
+          const errorMessage = Array.isArray(result.errors[errorKey])
+            ? result.errors[errorKey][0]
             : result.errors[errorKey];
 
           setError(formField, {
@@ -86,13 +86,13 @@ export default function RegisterForm({ messages }: { messages?: any }) {
         <label htmlFor="register-name" className="text-base/snug text-white font-normal sm:mb-2 mb-1 block">
           {t.fullName}
         </label>
-        <div className="input-field">
+        <div className={`input-field border rounded-lg transition-colors ${errors.full_name ? 'border-red-400' : 'border-transparent'}`}>
           <input
             id="register-name"
             {...register("full_name")}
             type="text"
             placeholder={t.namePlaceholder}
-            className="input-inner"
+            className="input-inner outline-none"
             aria-required="true"
             aria-describedby="register-name-error"
           />
@@ -101,7 +101,7 @@ export default function RegisterForm({ messages }: { messages?: any }) {
           </span>
         </div>
         {errors.full_name && (
-          <p id="register-name-error" role="alert" className="text-red-300 text-xs mt-1">
+          <p id="register-name-error" role="alert" className="text-red-300 text-xs mt-1 font-medium">
             {errors.full_name.message}
           </p>
         )}
@@ -111,13 +111,13 @@ export default function RegisterForm({ messages }: { messages?: any }) {
         <label htmlFor="register-phone" className="text-base/snug text-white font-normal sm:mb-2 mb-1 block">
           {t.mobileNumber}
         </label>
-        <div className="input-field">
+        <div className={`input-field border rounded-lg transition-colors ${errors.phone ? 'border-red-400' : 'border-transparent'}`}>
           <input
             id="register-phone"
             {...register("phone")}
             type="tel"
             placeholder={t.phonePlaceholder}
-            className="input-inner"
+            className="input-inner outline-none"
             aria-required="true"
             aria-describedby="register-phone-error"
           />
@@ -126,7 +126,7 @@ export default function RegisterForm({ messages }: { messages?: any }) {
           </span>
         </div>
         {errors.phone && (
-          <p id="register-phone-error" role="alert" className="text-red-300 text-xs mt-1">
+          <p id="register-phone-error" role="alert" className="text-red-300 text-xs mt-1 font-medium">
             {errors.phone.message}
           </p>
         )}
@@ -136,13 +136,13 @@ export default function RegisterForm({ messages }: { messages?: any }) {
         <label htmlFor="register-email" className="text-base/snug text-white font-normal sm:mb-2 mb-1 block">
           {t.yourEmail}
         </label>
-        <div className="input-field">
+        <div className={`input-field border rounded-lg transition-colors ${errors.email ? 'border-red-400' : 'border-transparent'}`}>
           <input
             id="register-email"
             {...register("email")}
             type="email"
             placeholder={t.emailPlaceholder}
-            className="input-inner"
+            className="input-inner outline-none"
             aria-required="true"
             aria-describedby="register-email-error"
           />
@@ -151,7 +151,7 @@ export default function RegisterForm({ messages }: { messages?: any }) {
           </span>
         </div>
         {errors.email && (
-          <p id="register-email-error" role="alert" className="text-red-300 text-xs mt-1">
+          <p id="register-email-error" role="alert" className="text-red-300 text-xs mt-1 font-medium">
             {errors.email.message}
           </p>
         )}

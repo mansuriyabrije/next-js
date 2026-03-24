@@ -24,6 +24,7 @@ export default function SubscribeForm({ messages }: { messages?: any }) {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm<SubscribeInput>({
     resolver: zodResolver(SubscribeSchema),
@@ -46,19 +47,28 @@ export default function SubscribeForm({ messages }: { messages?: any }) {
     } catch (error: any) {
       setSubmitStatus("error");
       const result = error.response?.data || {};
-      setApiMessage(result.message || t.error);
+      
+      const errorMessage = result.message || t.error;
+      setApiMessage(errorMessage);
+
+      if (result.errors?.email) {
+        setError("email", {
+          type: "manual",
+          message: Array.isArray(result.errors.email) ? result.errors.email[0] : result.errors.email,
+        });
+      }
     }
   });
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="flex rounded-full border border-[#B28CC8] bg-white lg:my-6 my-4 items-center overflow-hidden">
+      <div className={`flex rounded-full border lg:my-6 my-4 items-center overflow-hidden transition-colors ${errors.email ? 'border-red-500' : 'border-[#B28CC8]'} bg-white`}>
         <input
           id="subscribe-email"
           type="email"
           {...register("email")}
           placeholder={t.placeholder}
-          className="input-inner"
+          className="input-inner outline-none"
           aria-required="true"
           aria-describedby="subscribe-error"
         />
@@ -67,20 +77,21 @@ export default function SubscribeForm({ messages }: { messages?: any }) {
         </span>
       </div>
 
-      {submitStatus === "success" && (
-        <p role="alert" className="text-green-700 text-sm mt-2">
-          {apiMessage}
-        </p>
-      )}
-      {submitStatus === "error" && (
-        <p role="alert" className="text-red-500 text-sm mt-2">
-          {apiMessage}
+      {errors.email && (
+        <p id="subscribe-error" role="alert" className="text-red-500 text-xs mb-4 -mt-4 px-4 font-medium">
+          {errors.email.message}
         </p>
       )}
 
-      {errors.email && (
-        <p id="subscribe-error" role="alert" className="text-red-500 text-xs mb-2">
-          {errors.email.message}
+      {submitStatus === "success" && (
+        <p role="alert" className="text-green-700 text-sm mb-4 px-4 font-medium">
+          {apiMessage}
+        </p>
+      )}
+      
+      {submitStatus === "error" && !errors.email && (
+        <p role="alert" className="text-red-500 text-sm mb-4 px-4 font-medium">
+          {apiMessage}
         </p>
       )}
 
