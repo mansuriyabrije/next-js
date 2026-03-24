@@ -9,7 +9,7 @@ export default function RegisterSection() {
           <div className="form-box lg:rounded-[54px] rounded-3xl">
             <div className="lg:p-14 xs:p-5 p-3 lg:rounded-[54px] rounded-3xl bg-[radial-gradient(115.38%_185.8%_at_31.1%_-27.5%,#F243BC_0%,rgba(100,19,188,0.94)_50.55%,rgba(74,0,117,0.94)_73.96%,#F77479_98%)]">
               <div className="flex sm:flex-row flex-col 2xl:gap-[70px] lg:gap-10 gap-6 items-center">
-                <div className="sm:w-[52%] w-full lg:rounded-3xl rounded-xl lg:p-6 xs:p-4 p-3 shadow-[0px_10px_40px_0px_#00000029] bg-white/15">
+                <div className="sm:w-[52%] w-full lg:rounded-3xl rounded-xl lg:p-6 xs:p-4 p-3 shadow-[0px_10px_40px_0px_#00000029]">
                   <h3 className="text-white font-medium md:text-[40px] md:leading-12 text-3xl/snug mb-1">
                     Register Now
                   </h3>

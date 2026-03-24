@@ -9,7 +9,7 @@ export default function HeroSection() {
     <section className="banner-sec pt-60 relative">
       <div className="container max-w-7xl md:px-5 px-4 mx-auto">
         <div className="flex">
-          <div className="w-full md:w-[52%] pt-[70px]">
+          <div className="w-[52%] pt-[70px]">
             <h1 className="md:text-6xl/tight text-5xl/tight font-bold text-white mb-3">
               {titleLines[0]}
               <br />
@@ -23,7 +23,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="hidden md:block md:w-[48%] self-end">
+          <div className="w-[48%] self-end">
             <Image
               src="/assets/images/banner-img.png"
               alt="Ready to Date app preview"

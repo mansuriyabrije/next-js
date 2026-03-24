@@ -71,9 +71,9 @@ export default function Header() {
                     <a
                       href={item.href}
                       aria-label={`Go to ${item.label}`}
-                      className="group text-center w-20 flex justify-center items-center gap-1.5 transition-all duration-300 hover:text-accent"
+                      className="group flex items-center gap-1.5 transition-all duration-300 hover:text-accent"
                     >
-                      <span className="w-0 transition-all duration-300 scale-0 group-hover:block group-hover:scale-100 group-hover:w-6 overflow-hidden">
+                      <span className="opacity-0 scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100">
                         {heartIcon}
                       </span>
                       {item.label}
@@ -90,7 +90,7 @@ export default function Header() {
                 onChange={setSelectedLanguage}
               />
 
-              <PrimaryButton href="#" className="max-lg:hidden">
+              <PrimaryButton href="#" className="">
                 Invite Friends
               </PrimaryButton>
 
@@ -98,7 +98,7 @@ export default function Header() {
               <a
                 href="#"
                 aria-label="Watch app video"
-                className="lg:py-2 py-1.5 px-3 inline-flex gap-2 items-center justify-center text-white lg:min-h-[51px] min-h-12 rounded-full border border-white/30 bg-white/25 cursor-pointer max-lg:hidden"
+                className="lg:py-2 py-1.5 px-3 inline-flex gap-2 items-center justify-center text-white lg:min-h-[51px] min-h-12 rounded-full border border-white/30 bg-white/25 cursor-pointer"
               >
                 <img src="/assets/images/icon/play-icon.svg" alt="" className="w-7" />
                 App Video

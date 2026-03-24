@@ -23,7 +23,7 @@ export default function AppStoreButtons({ variant }: AppStoreButtonsProps) {
       : "/assets/images/logo/play-store.svg";
 
   return (
-    <div className="flex lg:gap-4 gap-2">
+    <div className="flex md:gap-4 gap-2">
       {/* TODO: replace placeholder href with real App Store URL */}
       <a href="#" aria-label={content.appStores.appStoreAriaLabel} className={buttonClass}>
         <img src={appStoreSrc} alt={content.appStores.appStoreAlt} className="max-w-full" />
