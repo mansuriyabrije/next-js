@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import { RegisterSchema, type RegisterInput } from "@/lib/validation/register";
 
@@ -24,29 +25,59 @@ export default function RegisterForm({ messages }: { messages?: any }) {
   };
 
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+  const [apiMessage, setApiMessage] = useState<string>("");
 
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm<RegisterInput>({
     resolver: zodResolver(RegisterSchema),
-    defaultValues: { name: "", phone: "", email: "", acceptTerms: false },
+    defaultValues: { full_name: "", phone: "", email: "", acceptTerms: false },
   });
 
   const onSubmit = handleSubmit(async (data) => {
     setSubmitStatus("idle");
-    const response = await fetch("/api/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    setApiMessage("");
+    
+    try {
+      const response = await axios.post("/api/register", data);
+      const result = response.data;
 
-    if (response.ok) {
+      // Handle cases where status is 200 but success/status is false
+      if (result.success === false || result.status === false) {
+        throw { response: { data: result } };
+      }
+
       setSubmitStatus("success");
-      return;
+      setApiMessage(result.message || t.success);
+    } catch (error: any) {
+      setSubmitStatus("error");
+      
+      const result = error.response?.data || {};
+      setApiMessage(result.message || t.error);
+
+      if (result.errors) {
+        Object.keys(result.errors).forEach((errorKey) => {
+          // Map backend fields to frontend fields
+          let formField: any = errorKey;
+          // Robust mapping for name fields
+          if (["first_name", "last_name", "full_name", "name"].includes(errorKey.toLowerCase())) {
+            formField = "full_name";
+          }
+          
+          const errorMessage = Array.isArray(result.errors[errorKey]) 
+            ? result.errors[errorKey][0] 
+            : result.errors[errorKey];
+
+          setError(formField, {
+            type: "manual",
+            message: errorMessage,
+          });
+        });
+      }
     }
-    setSubmitStatus("error");
   });
 
   return (
@@ -58,7 +89,7 @@ export default function RegisterForm({ messages }: { messages?: any }) {
         <div className="input-field">
           <input
             id="register-name"
-            {...register("name")}
+            {...register("full_name")}
             type="text"
             placeholder={t.namePlaceholder}
             className="input-inner"
@@ -69,9 +100,9 @@ export default function RegisterForm({ messages }: { messages?: any }) {
             <img src="/assets/images/icon/profile-icon.svg" alt="" className="min-w-4 w-4" />
           </span>
         </div>
-        {errors.name && (
+        {errors.full_name && (
           <p id="register-name-error" role="alert" className="text-red-300 text-xs mt-1">
-            {errors.name.message}
+            {errors.full_name.message}
           </p>
         )}
       </div>
@@ -149,12 +180,12 @@ export default function RegisterForm({ messages }: { messages?: any }) {
 
       {submitStatus === "success" && (
         <p role="alert" className="text-green-300 text-sm mt-3">
-          {t.success}
+          {apiMessage}
         </p>
       )}
       {submitStatus === "error" && (
         <p role="alert" className="text-red-300 text-sm mt-3">
-          {t.error}
+          {apiMessage}
         </p>
       )}
     </form>
