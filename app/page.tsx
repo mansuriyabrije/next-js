@@ -16,8 +16,8 @@ export default function Home() {
         <TrustSection />
         <LoveCompassSection />
         <RegisterSection />
-      </main>
       <Footer />
+      </main>
     </>
   );
 }

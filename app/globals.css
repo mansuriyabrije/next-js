@@ -77,7 +77,7 @@
 
 .gredient-div {
   background: url("/assets/images/main-gredient.png") no-repeat center top;
-  background-size: 100% 100%;
+  background-size: cover;
 }
 
 .site-footer .primary-btn .border-span {
@@ -100,7 +100,7 @@
 }
 
 .site-footer {
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .custom-checkbox:checked {
