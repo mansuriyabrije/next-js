@@ -4,6 +4,7 @@
    Design tokens
    ========================= */
 @theme {
+  --breakpoint-xs: 480px;
   --color-primary: #4A0075;
   --color-accent: #F243BC;
   /* Medium gray for body text */
@@ -99,7 +100,7 @@
 }
 
 .site-footer {
-  background-color: transparent;
+  background-color: #ffffff;
 }
 
 .custom-checkbox:checked {
@@ -108,14 +109,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .mobile-menu {
-    transform: translateX(100%);
-  }
-
-  .mobile-menu.active {
-    transform: translateX(0);
-  }
-
   #overlay.active {
     display: block !important;
   }
