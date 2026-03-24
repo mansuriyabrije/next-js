@@ -17,7 +17,7 @@ export default function PrimaryButton({
   onClick,
   type = "button",
 }: PrimaryButtonProps) {
-  const rootClassName = `btn-primary-shell ${className}`.trim();
+  const rootClassName = `primary-btn btn-primary-shell ${className}`.trim();
 
   const content = (
     <>
