@@ -44,7 +44,7 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div
           onClick={() => setIsMobileMenuOpen(false)}
-          className="fixed top-0 left-0 right-0 bottom-0 bg-overlay-dark z-40"
+          className="fixed top-0 left-0 right-0 bottom-0 bg-overlay-dark z-[55]"
           aria-hidden="true"
         />
       )}

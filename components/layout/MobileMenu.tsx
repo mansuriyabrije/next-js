@@ -12,7 +12,7 @@ type MobileMenuProps = {
 export default function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProps) {
   return (
     <div
-      className={`mobile-menu flex flex-col transition-transform duration-300 fixed top-0 bottom-0 right-0 h-dvh bg-white z-50 justify-between w-80 max-w-11/12 px-4 pb-4 pt-10 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+      className={`mobile-menu flex flex-col transition-transform duration-300 fixed top-0 bottom-0 right-0 h-dvh bg-white z-[60] justify-between w-80 max-w-[calc(11/12*100%)] px-4 pb-4 pt-10 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       aria-hidden={!isOpen}
     >
       <button
