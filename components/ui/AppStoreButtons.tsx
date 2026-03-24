@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { content } from "@/lib/constants/content";
 
 type AppStoreButtonsProps = {
@@ -25,13 +26,13 @@ export default function AppStoreButtons({ variant }: AppStoreButtonsProps) {
   return (
     <div className="flex md:gap-4 gap-2">
       {/* TODO: replace placeholder href with real App Store URL */}
-      <a href="#" aria-label={content.appStores.appStoreAriaLabel} className={buttonClass}>
+      <Link href="/" aria-label={content.appStores.appStoreAriaLabel} className={buttonClass}>
         <img src={appStoreSrc} alt={content.appStores.appStoreAlt} className="max-w-full" />
-      </a>
+      </Link>
       {/* TODO: replace placeholder href with real Google Play URL */}
-      <a href="#" aria-label={content.appStores.playStoreAriaLabel} className={buttonClass}>
+      <Link href="/" aria-label={content.appStores.playStoreAriaLabel} className={buttonClass}>
         <img src={playStoreSrc} alt={content.appStores.playStoreAlt} className="max-w-full" />
-      </a>
+      </Link>
     </div>
   );
 }

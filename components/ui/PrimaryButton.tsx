@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 type PrimaryButtonProps = {
@@ -35,9 +36,9 @@ export default function PrimaryButton({
 
   if (href) {
     return (
-      <a href={href} className={rootClassName} onClick={onClick}>
+      <Link href={href} className={rootClassName} onClick={onClick}>
         {content}
-      </a>
+      </Link>
     );
   }
 

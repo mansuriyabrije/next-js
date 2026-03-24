@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import LanguageDropdown from "@/components/layout/LanguageDropdown";
 import MobileMenu from "@/components/layout/MobileMenu";
 import PrimaryButton from "@/components/ui/PrimaryButton";
@@ -92,14 +93,14 @@ export default function Header({
         <div className="container max-w-7xl md:px-5 px-4 mx-auto">
           <div className="flex justify-between gap-5 items-center border-b border-neutral-100/35 md:py-4 py-3">
             <div className="flex xl:gap-6 gap-3 items-center">
-              <a href="/" aria-label="Go to homepage" className="md:max-w-24 max-w-16 block">
+              <Link href="/" aria-label="Go to homepage" className="md:max-w-24 max-w-16 block">
                 <img src="/assets/images/logo/site-logo.svg" alt="Ready to Date" />
-              </a>
+              </Link>
 
               <ul className="hidden lg:flex xl:gap-6 gap-3 text-white font-medium">
                 {localizedNavItems.map((item) => (
                   <li key={item.label}>
-                    <a
+                    <Link
                       href={item.href}
                       aria-label={`Go to ${item.label}`}
                       className="group flex items-center gap-1.5 transition-all duration-300 hover:text-accent"
@@ -108,7 +109,7 @@ export default function Header({
                         {heartIcon}
                       </span>
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -125,14 +126,14 @@ export default function Header({
                 {messages?.inviteFriends || "Invite Friends"}
               </PrimaryButton>
 
-              <a
-                href="#"
+              <Link
+                href="/"
                 aria-label="Watch app video"
                 className="lg:py-2 py-1.5 px-3 inline-flex gap-2 items-center justify-center text-white lg:min-h-[51px] min-h-12 rounded-full border border-white/30 bg-white/25 cursor-pointer"
               >
                 <img src="/assets/images/icon/play-icon.svg" alt="" className="w-7" />
                 {messages?.appVideo || "App Video"}
-              </a>
+              </Link>
 
               <button
                 id="menuOpenBtn"

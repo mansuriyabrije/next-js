@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import type { NavItem } from "@/lib/constants/nav";
 
@@ -34,7 +35,7 @@ export default function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProp
       <ul className="flex flex-col h-full overflow-y-auto gap-3 font-medium">
         {navItems.map((item) => (
           <li key={item.label}>
-            <a
+            <Link
               href={item.href}
               onClick={onClose}
               aria-label={`Go to ${item.label}`}
@@ -52,7 +53,7 @@ export default function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProp
                 </svg>
               </span>
               {item.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
