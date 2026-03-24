@@ -58,10 +58,10 @@
 }
 body{font-family: var(--font-lufga);}
 .primary-btn .border-span{background: url('../images/border-btn.png') no-repeat center;background-size: 100% 100%;}
-.gredient-div{background: url('../images/main-gredient.png') no-repeat center top;background-size: 100% 100%;}
+.gredient-div{background: url('../images/main-gredient.png') no-repeat center top;background-size: cover;}
 .site-footer .primary-btn .border-span{background: url('../images/primary-border-dashed.png') no-repeat center;background-size: 100% 100%;}
 .site-footer .social-media a:hover svg path:nth-child(1){stroke: white;}
-.banner-sec{background: url('../images/banner-bg.png') no-repeat center;background-size: 100% 100%;}
+.banner-sec{background: url('../images/banner-bg.png') no-repeat center;background-size: cover;}
 .form-sec .form-box{background: url('../images/background-img.png') no-repeat center;background-size: cover;}
 .custom-checkbox:checked{background: url('../images/icon/white-check-icon.svg') no-repeat center;background-size: 8px;}
 /* Responsive CSS */
