@@ -17,8 +17,9 @@ export default function SubscribeForm({ messages }: { messages?: any }) {
     success: "✓ You're subscribed!",
     error: "Something went wrong. Please try again."
   };
-  
+
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+  const [apiMessage, setApiMessage] = useState<string>("");
 
   const {
     register,
@@ -31,11 +32,21 @@ export default function SubscribeForm({ messages }: { messages?: any }) {
 
   const onSubmit = handleSubmit(async (data) => {
     setSubmitStatus("idle");
+    setApiMessage("");
     try {
-      await axios.post("/api/subscribe", data);
+      const response = await axios.post("/api/subscribe", data);
+      const result = response.data;
+
+      if (result.success === false || result.status === false) {
+        throw { response: { data: result } };
+      }
+
       setSubmitStatus("success");
-    } catch (error) {
+      setApiMessage(result.message || t.success);
+    } catch (error: any) {
       setSubmitStatus("error");
+      const result = error.response?.data || {};
+      setApiMessage(result.message || t.error);
     }
   });
 
@@ -56,6 +67,17 @@ export default function SubscribeForm({ messages }: { messages?: any }) {
         </span>
       </div>
 
+      {submitStatus === "success" && (
+        <p role="alert" className="text-green-700 text-sm mt-2">
+          {apiMessage}
+        </p>
+      )}
+      {submitStatus === "error" && (
+        <p role="alert" className="text-red-500 text-sm mt-2">
+          {apiMessage}
+        </p>
+      )}
+
       {errors.email && (
         <p id="subscribe-error" role="alert" className="text-red-500 text-xs mb-2">
           {errors.email.message}
@@ -66,16 +88,7 @@ export default function SubscribeForm({ messages }: { messages?: any }) {
         {isSubmitting ? t.subscribing : t.button}
       </PrimaryButton>
 
-      {submitStatus === "success" && (
-        <p role="alert" className="text-green-700 text-sm mt-2">
-          {t.success}
-        </p>
-      )}
-      {submitStatus === "error" && (
-        <p role="alert" className="text-red-500 text-sm mt-2">
-          {t.error}
-        </p>
-      )}
+
     </form>
   );
 }

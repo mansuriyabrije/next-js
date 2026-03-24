@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { SubscribeSchema } from "@/lib/validation/subscribe";
+import { config } from "@/lib/config";
+import { apiFetch } from "@/lib/api/helper";
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,11 +15,27 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // TODO: Replace with real email provider integration
-    console.log("Subscribe submission:", result.data);
+    const { email } = result.data;
+    
+    const { data, error, status, message, errors } = await apiFetch(config.backend.endpoints.subscribe, {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+      }),
+    });
 
-    return NextResponse.json({ success: true }, { status: 200 });
-  } catch {
+    if (error) {
+      return NextResponse.json({ success: false, message, errors }, { status });
+    }
+
+    return NextResponse.json({ 
+      success: true, 
+      message: message || "Subscribed successfully",
+      data 
+    }, { status: 200 });
+    
+  } catch (error) {
+    console.error("Subscription error:", error);
     return NextResponse.json({ success: false, error: "Internal server error" }, { status: 500 });
   }
 }
